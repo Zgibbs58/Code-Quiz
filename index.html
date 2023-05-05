@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <a class="high-scores" href="#">View high scores</a>
-      <p>Time: <span class="timer">0</span></p>
-    </header>
     <main>
-      <h1>Code Quiz</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime unde
-        quasi tenetur, ullam sed dolorum fugiat dolore quidem eum impedit in nam
-        itaque natus sint. Aliquam repellendus repellat numquam nam.
-      </p>
-      <button class="take-quiz-btn">Take Quiz</button>
+      <header>
+        <a class="high-scores" href="#">View high scores</a>
+        <p>Time: <span class="timer">0</span></p>
+      </header>
+      <section id="start">
+        <h2>Code Quiz</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime unde
+          quasi tenetur, ullam sed dolorum fugiat dolore quidem eum impedit in
+          nam itaque natus sint. Aliquam repellendus repellat numquam nam.
+        </p>
+        <button class="take-quiz-btn">Take Quiz</button>
+      </section>
+      <section id="quiz" style="display: none">
+        <h2>Quiz</h2>
+        <button class="end-quiz-btn">End</button>
+      </section>
+      <section id="end" style="display: none">
+        <h2>End</h2>
+        <button class="home-quiz-btn">Start</button>
+      </section>
     </main>
     <script src="assets/js/script.js"></script>
   </body>
