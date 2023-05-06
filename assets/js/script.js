@@ -9,12 +9,14 @@ startQuiz.addEventListener("click", function () {
   start.setAttribute("style", "display:none;");
   quiz.setAttribute("style", "display:;");
   end.setAttribute("style", "display:none;");
+  // starting quiz function call
+  quizStart();
 });
-endQuiz.addEventListener("click", function () {
-  start.setAttribute("style", "display:none;");
-  quiz.setAttribute("style", "display:none;");
-  end.setAttribute("style", "display:;");
-});
+// endQuiz.addEventListener("click", function () {
+//   start.setAttribute("style", "display:none;");
+//   quiz.setAttribute("style", "display:none;");
+//   end.setAttribute("style", "display:;");
+// });
 
 quizHome.addEventListener("click", function () {
   start.setAttribute("style", "display:;");
@@ -22,25 +24,10 @@ quizHome.addEventListener("click", function () {
   end.setAttribute("style", "display:none;");
 });
 
-var startQuiz = document.querySelector(".take-quiz-btn");
-var timer = document.querySelector(".timer");
-console.log(timer);
+var currentQuestionIndex = 0;
+var answer = [];
 
-startQuiz.addEventListener("click", function takeQuiz() {
-  var timeLeft = 15;
-
-  var myInterval = setInterval(function () {
-    timeLeft--;
-    timer.textContent = timeLeft;
-
-    if (timeLeft === 0) {
-      clearInterval(myInterval);
-      timer.textContent = 0;
-    }
-  }, 1000);
-});
-
-var quiz = [
+var quizQuestions = [
   {
     question: "What is your favorite day?",
     choices: ["Monday", "Wednesday", "Friday", "Saturday"],
@@ -53,9 +40,42 @@ var quiz = [
   },
 ];
 
-function startQuiz() {
-  var question = document.querySelector(".question");
-  var choices = document.querySelector(".choices");
+var currentQuestionIndex = 0;
+var answer = [];
 
-  var currentQuestion = quiz;
+function quizStart() {
+  var questionDiv = document.querySelector(".question");
+  var choicesDiv = document.querySelector(".choices");
+
+  var currentQuestion = quizQuestions[currentQuestionIndex];
+  questionDiv.textContent = currentQuestion.question;
+
+  currentQuestion.choices.forEach((choice, index) => {
+    var li = document.createElement("li");
+    var input = document.createElement("input");
+    input.type = "radio";
+    input.name = "answer";
+    input.value = index;
+
+    li.appendChild(input);
+    choicesDiv.appendChild(li);
+  });
 }
+
+// var startQuiz = document.querySelector(".take-quiz-btn");
+// var timer = document.querySelector(".timer");
+// console.log(timer);
+
+// startQuiz.addEventListener("click", function takeQuiz() {
+//   var timeLeft = 15;
+
+//   var myInterval = setInterval(function () {
+//     timeLeft--;
+//     timer.textContent = timeLeft;
+
+//     if (timeLeft === 0) {
+//       clearInterval(myInterval);
+//       timer.textContent = 0;
+//     }
+//   }, 1000);
+// });
