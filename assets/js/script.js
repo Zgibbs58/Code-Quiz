@@ -22,20 +22,40 @@ quizHome.addEventListener("click", function () {
   end.setAttribute("style", "display:none;");
 });
 
-// var takeQuizBtn = document.querySelector(".take-quiz-btn");
-// var timer = document.querySelector(".timer");
-// console.log(timer);
+var startQuiz = document.querySelector(".take-quiz-btn");
+var timer = document.querySelector(".timer");
+console.log(timer);
 
-// takeQuizBtn.addEventListener("click", function takeQuiz() {
-//   var timeLeft = 15;
+startQuiz.addEventListener("click", function takeQuiz() {
+  var timeLeft = 15;
 
-//   var myInterval = setInterval(function () {
-//     timeLeft--;
-//     timer.textContent = timeLeft;
+  var myInterval = setInterval(function () {
+    timeLeft--;
+    timer.textContent = timeLeft;
 
-//     if (timeLeft === 0) {
-//       clearInterval(myInterval);
-//       timer.textContent = 0;
-//     }
-//   }, 1000);
-// });
+    if (timeLeft === 0) {
+      clearInterval(myInterval);
+      timer.textContent = 0;
+    }
+  }, 1000);
+});
+
+var quiz = [
+  {
+    question: "What is your favorite day?",
+    choices: ["Monday", "Wednesday", "Friday", "Saturday"],
+    answer: 0,
+  },
+  {
+    question: "What is your favorite day?",
+    choices: ["Monday", "Wednesday", "Friday", "Saturday"],
+    answer: 0,
+  },
+];
+
+function startQuiz() {
+  var question = document.querySelector(".question");
+  var choices = document.querySelector(".choices");
+
+  var currentQuestion = quiz;
+}
