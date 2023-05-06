@@ -36,12 +36,12 @@ var quizQuestions = [
   {
     question: "What is your favorite day?",
     choices: ["Monday", "Wednesday", "Friday", "Saturday"],
-    answer: 0,
+    answer: 3,
   },
 ];
 
 var currentQuestionIndex = 0;
-var answer = [];
+var userAnswers = [];
 
 function quizStart() {
   var questionDiv = document.querySelector(".question");
@@ -67,17 +67,21 @@ function quizStart() {
     choicesDiv.appendChild(li);
   });
 }
-
+// upon click of submit button the inputs are checked and the value of the one chosen is consoled
 submitBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var allChoices = document.querySelectorAll("input");
 
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
+      var userChoice = allChoice.value;
       console.log(allChoice.value);
     }
   }
-
+  console.log(quizQuestions[currentQuestionIndex].answer);
+  if (userChoice == quizQuestions[currentQuestionIndex].answer) {
+    console.log("true");
+  }
   // function checkAnswers() {
   //   let score = 0;
 
