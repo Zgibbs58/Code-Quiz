@@ -51,13 +51,16 @@ function quizStart() {
   questionDiv.textContent = currentQuestion.question;
 
   currentQuestion.choices.forEach((choice, index) => {
+    var label = document.createElement("label");
     var li = document.createElement("li");
     var input = document.createElement("input");
     input.type = "radio";
     input.name = "answer";
     input.value = index;
+    label.textContent = choice;
 
     li.appendChild(input);
+    li.appendChild(label);
     choicesDiv.appendChild(li);
   });
 }
