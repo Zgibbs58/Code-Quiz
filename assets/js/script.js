@@ -2,7 +2,7 @@ var start = document.querySelector("#start");
 var quiz = document.querySelector("#quiz");
 var end = document.querySelector("#end");
 var startQuiz = document.querySelector(".take-quiz-btn");
-var endQuiz = document.querySelector(".end-quiz-btn");
+var submitBtn = document.querySelector(".submit-answer-btn");
 var quizHome = document.querySelector(".home-quiz-btn");
 
 startQuiz.addEventListener("click", function () {
@@ -12,7 +12,7 @@ startQuiz.addEventListener("click", function () {
   // starting quiz function call
   quizStart();
 });
-// endQuiz.addEventListener("click", function () {
+// submitBtn.addEventListener("click", function () {
 //   start.setAttribute("style", "display:none;");
 //   quiz.setAttribute("style", "display:none;");
 //   end.setAttribute("style", "display:;");
@@ -31,7 +31,7 @@ var quizQuestions = [
   {
     question: "What is your favorite day?",
     choices: ["Monday", "Wednesday", "Friday", "Saturday"],
-    answer: 0,
+    answer: 2,
   },
   {
     question: "What is your favorite day?",
@@ -57,6 +57,9 @@ function quizStart() {
     input.type = "radio";
     input.name = "answer";
     input.value = index;
+    // inputid index and label for attribute index match up values so the label text can be clicked on to relate to same radio button.
+    input.id = [index];
+    label.setAttribute("for", [index]);
     label.textContent = choice;
 
     li.appendChild(input);
@@ -64,6 +67,23 @@ function quizStart() {
     choicesDiv.appendChild(li);
   });
 }
+
+submitBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  var allChoices = document.querySelectorAll("input");
+
+  for (var allChoice of allChoices) {
+    if (allChoice.checked) {
+      console.log(allChoice.value);
+    }
+  }
+
+  // function checkAnswers() {
+  //   let score = 0;
+
+  //   quizQuestions.forEach((quizQuestion, index) => {});
+  // }
+});
 
 // var startQuiz = document.querySelector(".take-quiz-btn");
 // var timer = document.querySelector(".timer");
