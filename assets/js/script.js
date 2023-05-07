@@ -52,7 +52,9 @@ var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
 var timeLeft = 35;
 var myInterval;
-
+// made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question
+// this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
+// in the global scope. But this is not good practice
 function timerStart() {
   myInterval = setInterval(timerCountdown, 1000);
 }
@@ -110,8 +112,11 @@ submitBtn.addEventListener("click", function (event) {
     currentQuestionIndex++;
     quizQuestDisplay();
   } else {
+    // defining the score, displaying it, and setting it to local storage.
+    var score = timer.textContent;
+    localStorage.setItem("score", score);
     var scoreText = document.querySelector(".score-text");
-    scoreText.textContent = "You're score was ";
+    scoreText.textContent = "You're score was " + score;
     clearInterval(myInterval);
     start.setAttribute("style", "display:none;");
     quiz.setAttribute("style", "display:none;");
