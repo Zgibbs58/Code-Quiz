@@ -4,7 +4,9 @@ var end = document.querySelector("#end");
 var startQuiz = document.querySelector(".take-quiz-btn");
 var submitBtn = document.querySelector(".submit-answer-btn");
 var quizHome = document.querySelector(".submit-high-score");
+var score;
 var player;
+var highScore;
 
 startQuiz.addEventListener("click", function () {
   start.setAttribute("style", "display:none;");
@@ -45,7 +47,7 @@ var quizQuestions = [
 
 var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
-var timeLeft = 35;
+var timeLeft = 20;
 var myInterval;
 // made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
@@ -57,9 +59,10 @@ function timerCountdown() {
   timer.textContent = timeLeft;
   timeLeft--;
 
-  if (timeLeft <= 0) {
+  if (timeLeft < 0) {
     clearInterval(myInterval);
     timer.textContent = 0;
+    endQuiz();
   }
 }
 
@@ -107,23 +110,31 @@ submitBtn.addEventListener("click", function (event) {
     currentQuestionIndex++;
     quizQuestDisplay();
   } else {
-    // defining the score, displaying it, and setting it to local storage.
-    var score = timer.textContent;
-    localStorage.setItem("score", score);
-    var scoreText = document.querySelector(".score-text");
-    scoreText.textContent = "You're score was " + score;
-    clearInterval(myInterval);
-    start.setAttribute("style", "display:none;");
-    quiz.setAttribute("style", "display:none;");
-    end.setAttribute("style", "display:;");
+    endQuiz();
   }
 });
 
 quizHome.addEventListener("click", function (event) {
   event.preventDefault();
-  player = document.querySelector(".player-input").value;
   start.setAttribute("style", "display:;");
   quiz.setAttribute("style", "display:none;");
   end.setAttribute("style", "display:none;");
+  player = document.querySelector(".player-input").value;
   localStorage.setItem("Player", player);
+  localStorage.setItem("Score", score);
+  currentQuestionIndex = 0;
+  timeLeft = 20;
+  timer.textContent = timeLeft;
 });
+
+function endQuiz() {
+  // defining the score, displaying it, and setting it to local storage.
+  score = timer.textContent;
+  // localStorage.setItem("score", score);
+  var scoreText = document.querySelector(".score-text");
+  scoreText.textContent = "You're score was " + score;
+  clearInterval(myInterval);
+  start.setAttribute("style", "display:none;");
+  quiz.setAttribute("style", "display:none;");
+  end.setAttribute("style", "display:;");
+}
