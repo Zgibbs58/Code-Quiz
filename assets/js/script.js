@@ -47,7 +47,7 @@ var quizQuestions = [
 
 var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
-var timeLeft = 20;
+var timeLeft = 40;
 var myInterval;
 // made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
@@ -116,15 +116,16 @@ submitBtn.addEventListener("click", function (event) {
 
 quizHome.addEventListener("click", function (event) {
   event.preventDefault();
-  start.setAttribute("style", "display:;");
-  quiz.setAttribute("style", "display:none;");
-  end.setAttribute("style", "display:none;");
+  // start.setAttribute("style", "display:;");
+  // quiz.setAttribute("style", "display:none;");
+  // end.setAttribute("style", "display:none;");
   player = document.querySelector(".player-input").value;
   localStorage.setItem("Player", player);
   localStorage.setItem("Score", score);
-  currentQuestionIndex = 0;
-  timeLeft = 20;
-  timer.textContent = timeLeft;
+  // currentQuestionIndex = 0;
+  // timeLeft = 40;
+  // timer.textContent = timeLeft;
+  window.location.href = "highScore.html";
 });
 
 function endQuiz() {
