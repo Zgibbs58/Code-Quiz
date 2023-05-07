@@ -10,8 +10,8 @@ startQuiz.addEventListener("click", function () {
   quiz.setAttribute("style", "display:;");
   end.setAttribute("style", "display:none;");
   // starting quiz function call
-  quizStart();
-  takeQuiz();
+  quizQuestDisplay();
+  timerStart();
 });
 // submitBtn.addEventListener("click", function () {
 //   start.setAttribute("style", "display:none;");
@@ -49,23 +49,24 @@ var quizQuestions = [
 ];
 
 var currentQuestionIndex = 0;
-var userChoices = [];
 var timer = document.querySelector(".timer");
 var timeLeft = 35;
+var myInterval;
 
-function takeQuiz() {
-  var myInterval = setInterval(function () {
-    timer.textContent = timeLeft;
-    timeLeft--;
+function timerStart() {
+  myInterval = setInterval(timerCountdown, 1000);
+}
+function timerCountdown() {
+  timer.textContent = timeLeft;
+  timeLeft--;
 
-    if (timeLeft <= 0) {
-      clearInterval(myInterval);
-      timer.textContent = 0;
-    }
-  }, 1000);
+  if (timeLeft <= 0) {
+    clearInterval(myInterval);
+    timer.textContent = 0;
+  }
 }
 
-function quizStart() {
+function quizQuestDisplay() {
   var questionDiv = document.querySelector(".question");
   var choicesDiv = document.querySelector(".choices");
 
@@ -107,8 +108,11 @@ submitBtn.addEventListener("click", function (event) {
   }
   if (currentQuestionIndex < quizQuestions.length - 1) {
     currentQuestionIndex++;
-    quizStart();
+    quizQuestDisplay();
   } else {
+    var scoreText = document.querySelector(".score-text");
+    scoreText.textContent = "You're score was ";
+    clearInterval(myInterval);
     start.setAttribute("style", "display:none;");
     quiz.setAttribute("style", "display:none;");
     end.setAttribute("style", "display:;");
