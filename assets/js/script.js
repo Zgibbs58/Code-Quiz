@@ -3,7 +3,8 @@ var quiz = document.querySelector("#quiz");
 var end = document.querySelector("#end");
 var startQuiz = document.querySelector(".take-quiz-btn");
 var submitBtn = document.querySelector(".submit-answer-btn");
-var quizHome = document.querySelector(".home-quiz-btn");
+var quizHome = document.querySelector(".submit-high-score");
+var player;
 
 startQuiz.addEventListener("click", function () {
   start.setAttribute("style", "display:none;");
@@ -18,12 +19,6 @@ startQuiz.addEventListener("click", function () {
 //   quiz.setAttribute("style", "display:none;");
 //   end.setAttribute("style", "display:;");
 // });
-
-quizHome.addEventListener("click", function () {
-  start.setAttribute("style", "display:;");
-  quiz.setAttribute("style", "display:none;");
-  end.setAttribute("style", "display:none;");
-});
 
 var quizQuestions = [
   {
@@ -122,4 +117,13 @@ submitBtn.addEventListener("click", function (event) {
     quiz.setAttribute("style", "display:none;");
     end.setAttribute("style", "display:;");
   }
+});
+
+quizHome.addEventListener("click", function (event) {
+  event.preventDefault();
+  player = document.querySelector(".player-input").value;
+  start.setAttribute("style", "display:;");
+  quiz.setAttribute("style", "display:none;");
+  end.setAttribute("style", "display:none;");
+  localStorage.setItem("Player", player);
 });
