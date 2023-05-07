@@ -11,6 +11,7 @@ startQuiz.addEventListener("click", function () {
   end.setAttribute("style", "display:none;");
   // starting quiz function call
   quizStart();
+  takeQuiz();
 });
 // submitBtn.addEventListener("click", function () {
 //   start.setAttribute("style", "display:none;");
@@ -24,9 +25,6 @@ quizHome.addEventListener("click", function () {
   end.setAttribute("style", "display:none;");
 });
 
-var currentQuestionIndex = 0;
-var answer = [];
-
 var quizQuestions = [
   {
     question: "What is your favorite day?",
@@ -34,14 +32,38 @@ var quizQuestions = [
     answer: 2,
   },
   {
-    question: "What is your favorite day?",
-    choices: ["Monday", "Wednesday", "Friday", "Saturday"],
+    question: "What is your favorite color?",
+    choices: ["red", "purple", "green", "blue"],
     answer: 3,
+  },
+  {
+    question: "What is your favorite food?",
+    choices: ["burgers", "fried chicken", "steak", "pizza"],
+    answer: 0,
+  },
+  {
+    question: "What is your favorite vacation?",
+    choices: ["mountains", "beach", "lake", "casino"],
+    answer: 0,
   },
 ];
 
 var currentQuestionIndex = 0;
-var userAnswers = [];
+var userChoices = [];
+var timer = document.querySelector(".timer");
+var timeLeft = 35;
+
+function takeQuiz() {
+  var myInterval = setInterval(function () {
+    timer.textContent = timeLeft;
+    timeLeft--;
+
+    if (timeLeft <= 0) {
+      clearInterval(myInterval);
+      timer.textContent = 0;
+    }
+  }, 1000);
+}
 
 function quizStart() {
   var questionDiv = document.querySelector(".question");
@@ -50,6 +72,7 @@ function quizStart() {
   var currentQuestion = quizQuestions[currentQuestionIndex];
   questionDiv.textContent = currentQuestion.question;
 
+  choicesDiv.textContent = "";
   currentQuestion.choices.forEach((choice, index) => {
     var label = document.createElement("label");
     var li = document.createElement("li");
@@ -74,35 +97,20 @@ submitBtn.addEventListener("click", function (event) {
 
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
-      var userChoice = allChoice.value;
-      console.log(allChoice.value);
+      var userChoice = parseInt(allChoice.value);
+    } else {
+      // add error handling here for no answer chosen
     }
   }
-  console.log(quizQuestions[currentQuestionIndex].answer);
-  if (userChoice == quizQuestions[currentQuestionIndex].answer) {
-    console.log("true");
+  if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
+    timeLeft -= 5;
   }
-  // function checkAnswers() {
-  //   let score = 0;
-
-  //   quizQuestions.forEach((quizQuestion, index) => {});
-  // }
+  if (currentQuestionIndex < quizQuestions.length - 1) {
+    currentQuestionIndex++;
+    quizStart();
+  } else {
+    start.setAttribute("style", "display:none;");
+    quiz.setAttribute("style", "display:none;");
+    end.setAttribute("style", "display:;");
+  }
 });
-
-// var startQuiz = document.querySelector(".take-quiz-btn");
-// var timer = document.querySelector(".timer");
-// console.log(timer);
-
-// startQuiz.addEventListener("click", function takeQuiz() {
-//   var timeLeft = 15;
-
-//   var myInterval = setInterval(function () {
-//     timeLeft--;
-//     timer.textContent = timeLeft;
-
-//     if (timeLeft === 0) {
-//       clearInterval(myInterval);
-//       timer.textContent = 0;
-//     }
-//   }, 1000);
-// });
