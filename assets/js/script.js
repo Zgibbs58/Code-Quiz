@@ -6,7 +6,7 @@ var submitBtn = document.querySelector(".submit-answer-btn");
 var quizHome = document.querySelector(".submit-high-score");
 var score;
 var player;
-var highScore;
+var highScoreData;
 
 startQuiz.addEventListener("click", function () {
   start.setAttribute("style", "display:none;");
@@ -114,20 +114,6 @@ submitBtn.addEventListener("click", function (event) {
   }
 });
 
-quizHome.addEventListener("click", function (event) {
-  event.preventDefault();
-  // start.setAttribute("style", "display:;");
-  // quiz.setAttribute("style", "display:none;");
-  // end.setAttribute("style", "display:none;");
-  player = document.querySelector(".player-input").value;
-  localStorage.setItem("Player", player);
-  localStorage.setItem("Score", score);
-  // currentQuestionIndex = 0;
-  // timeLeft = 40;
-  // timer.textContent = timeLeft;
-  window.location.href = "highScore.html";
-});
-
 function endQuiz() {
   // defining the score, displaying it, and setting it to local storage.
   score = timer.textContent;
@@ -139,3 +125,21 @@ function endQuiz() {
   quiz.setAttribute("style", "display:none;");
   end.setAttribute("style", "display:;");
 }
+
+quizHome.addEventListener("click", function (event) {
+  event.preventDefault();
+  // code below sets up player score object in local storage
+  player = document.querySelector(".player-input").value;
+  var highScoreData = {
+    name: player,
+    newScore: score,
+  };
+  // start.setAttribute("style", "display:;");
+  // quiz.setAttribute("style", "display:none;");
+  // end.setAttribute("style", "display:none;");
+  localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
+  // currentQuestionIndex = 0;
+  // timeLeft = 40;
+  // timer.textContent = timeLeft;
+  window.location.href = "highScore.html";
+});
