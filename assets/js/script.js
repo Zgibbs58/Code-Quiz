@@ -24,24 +24,49 @@ startQuiz.addEventListener("click", function () {
 
 var quizQuestions = [
   {
-    question: "What is your favorite day?",
-    choices: ["Monday", "Wednesday", "Friday", "Saturday"],
+    question: "What is the main goal of rock climbing?",
+    choices: [
+      "Reach the summit of a rock",
+      "Live in the mountains",
+      "Jump off the rock at the end",
+      "Test rock quality",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which of the following is not a type of climbing?",
+    choices: ["Lead", "Aid", "Mixed", "Trad"],
     answer: 2,
   },
   {
-    question: "What is your favorite color?",
-    choices: ["red", "purple", "green", "blue"],
-    answer: 3,
+    question: "What is a free solo?",
+    choices: [
+      "A climbing tool",
+      "A name of an athlete",
+      "A type of climbing",
+      "Wearing no clothes while climbing",
+    ],
+    answer: 2,
   },
   {
-    question: "What is your favorite food?",
-    choices: ["burgers", "fried chicken", "steak", "pizza"],
+    question: "What does kn represent?",
+    choices: ["Kilo Newtons", "Killer Noobs", "Kilo Nanos", "Kava Narrow"],
     answer: 0,
   },
   {
-    question: "What is your favorite vacation?",
-    choices: ["mountains", "beach", "lake", "casino"],
-    answer: 0,
+    question: "Bouldering requires a harness and a rope.",
+    choices: ["True", "False"],
+    answer: 1,
+  },
+  {
+    question: "What is a quickdraw?",
+    choices: [
+      "Western fight to the death",
+      "A dynamic move to the next hold",
+      "Two carabiners connected by a strong material",
+      "Ascending a rope quickly",
+    ],
+    answer: 2,
   },
 ];
 
@@ -49,17 +74,16 @@ var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
 var timeLeft = 40;
 var myInterval;
-// made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question
+// made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question in endQuiz function
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
 // in the global scope. But this is not good practice
 function timerStart() {
   myInterval = setInterval(timerCountdown, 1000);
 }
 function timerCountdown() {
-  // timer decreases by one every second, resets to black and timeLeft after -5 red wrong answer in quizLogicHandling.
+  // timer decreases by one every second
   timer.textContent = timeLeft;
   timeLeft--;
-  timer.style.color = "black";
 
   if (timeLeft < 0) {
     clearInterval(myInterval);
