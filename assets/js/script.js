@@ -56,8 +56,10 @@ function timerStart() {
   myInterval = setInterval(timerCountdown, 1000);
 }
 function timerCountdown() {
+  // timer decreases by one every second, resets to black and timeLeft after -5 red wrong answer in quizLogicHandling.
   timer.textContent = timeLeft;
   timeLeft--;
+  timer.style.color = "black";
 
   if (timeLeft < 0) {
     clearInterval(myInterval);
@@ -99,10 +101,13 @@ function quizLogicHandling(event) {
   var allChoices = document.querySelectorAll("input");
   var userChoice = null;
   var choiceSelected = false;
+  var choiceMsg = document.querySelector(".question-message");
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
       userChoice = parseInt(allChoice.value);
       choiceSelected = true;
+      choiceMsg.textContent = "Correct Answer";
+      choiceMsg.style.color = "green";
       break;
     }
   }
@@ -111,15 +116,16 @@ function quizLogicHandling(event) {
   } else {
     if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
       timeLeft -= 5;
-      var wrongMsg = document.createElement("h4");
-      wrongMsg.textContent = "Wrong Answer";
-      document.getElementById("quizForm").appendChild(wrongMsg);
+      timer.style.color = "red";
+      timer.textContent = "-5";
+      choiceMsg.textContent = "Wrong Answer";
+      choiceMsg.style.color = "red";
     }
     if (currentQuestionIndex < quizQuestions.length - 1) {
       currentQuestionIndex++;
       quizQuestDisplay();
     } else {
-      setTimeout(endQuiz, 1000);
+      setTimeout(endQuiz, 700);
     }
   }
 }
