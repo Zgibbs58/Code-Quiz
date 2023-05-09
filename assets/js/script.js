@@ -93,7 +93,7 @@ function quizQuestDisplay() {
     choicesDiv.appendChild(li);
   });
 }
-// upon click of submit button the inputs are checked and the value of the one chosen is consoled
+// upon click of submit button the inputs are checked and the value of the one chosen is checked against correct answer
 submitBtn.addEventListener("click", quizLogicHandling);
 
 function quizLogicHandling(event) {
@@ -125,6 +125,7 @@ function quizLogicHandling(event) {
       currentQuestionIndex++;
       quizQuestDisplay();
     } else {
+      // added timeout to endQuiz so if the userChoice was wrong, the code for wrong choice would have time to run.
       setTimeout(endQuiz, 700);
     }
   }

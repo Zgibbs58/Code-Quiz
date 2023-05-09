@@ -20,10 +20,13 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem 2rem;
 }
 
-.choices li {
+li {
   list-style: none;
+  padding: 0.5rem;
+  text-align: left;
 }
 
 /* input[type="radio"] {
@@ -37,13 +40,45 @@ header {
 form {
   text-align: center;
 }
-form li {
+/* form li {
   padding: 0.5rem;
   text-align: left;
-}
+} */
 
 form li label {
   /* background-color: blue;
   color: white; */
   padding: 0.5rem;
+}
+.high-scores-body {
+  background-color: rgb(59, 138, 33);
+}
+.high-score-nav {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+.high-score-header {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
+.high-score-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(59, 138, 33);
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+}
+.high-score-list li {
+  display: block;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 4px solid white;
 }
