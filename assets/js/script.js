@@ -102,6 +102,7 @@ function quizLogicHandling(event) {
   var userChoice = null;
   var choiceSelected = false;
   var choiceMsg = document.querySelector(".question-message");
+  var loseTimeMsg = document.createElement("p");
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
       userChoice = parseInt(allChoice.value);
@@ -116,8 +117,9 @@ function quizLogicHandling(event) {
   } else {
     if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
       timeLeft -= 5;
-      timer.style.color = "red";
-      timer.textContent = "-5";
+      loseTimeMsg.style.color = "red";
+      loseTimeMsg.textContent = "-5";
+      timer.appendChild(loseTimeMsg);
       choiceMsg.textContent = "Wrong Answer";
       choiceMsg.style.color = "red";
     }
