@@ -25,3 +25,25 @@ header {
 .choices li {
   list-style: none;
 }
+
+/* input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+} */
+
+.choices {
+  padding: 0.5rem;
+}
+form {
+  text-align: center;
+}
+form li {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+form li label {
+  /* background-color: blue;
+  color: white; */
+  padding: 0.5rem;
+}

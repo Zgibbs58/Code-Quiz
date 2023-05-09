@@ -92,27 +92,37 @@ function quizQuestDisplay() {
   });
 }
 // upon click of submit button the inputs are checked and the value of the one chosen is consoled
-submitBtn.addEventListener("click", function (event) {
+submitBtn.addEventListener("click", quizLogicHandling);
+
+function quizLogicHandling(event) {
   event.preventDefault();
   var allChoices = document.querySelectorAll("input");
-
+  var userChoice = null;
+  var choiceSelected = false;
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
-      var userChoice = parseInt(allChoice.value);
-    } else {
-      // add error handling here for no answer chosen
+      userChoice = parseInt(allChoice.value);
+      choiceSelected = true;
+      break;
     }
   }
-  if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
-    timeLeft -= 5;
-  }
-  if (currentQuestionIndex < quizQuestions.length - 1) {
-    currentQuestionIndex++;
-    quizQuestDisplay();
+  if (!choiceSelected) {
+    return;
   } else {
-    endQuiz();
+    if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
+      timeLeft -= 5;
+      var wrongMsg = document.createElement("h4");
+      wrongMsg.textContent = "Wrong Answer";
+      document.getElementById("quizForm").appendChild(wrongMsg);
+    }
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+      currentQuestionIndex++;
+      quizQuestDisplay();
+    } else {
+      setTimeout(endQuiz, 1000);
+    }
   }
-});
+}
 
 function endQuiz() {
   // defining the score, displaying it, and setting it to local storage.
