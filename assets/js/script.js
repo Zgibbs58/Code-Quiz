@@ -128,18 +128,30 @@ function endQuiz() {
 
 quizHome.addEventListener("click", function (event) {
   event.preventDefault();
-  // code below sets up player score object in local storage
   player = document.querySelector(".player-input").value;
-  var highScoreData = {
-    name: player,
-    newScore: score,
-  };
+  // testing to see if highScoreData exists yet in local storage. If not set up first score in the first if statement
+  if (!localStorage.getItem("highScoreData")) {
+    var highScoreData = [];
+    highScoreData.push({
+      name: player,
+      newScore: score,
+    });
+    localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
+  } else {
+    highScoreData = JSON.parse(localStorage.getItem("highScoreData"));
+    highScoreData.push({
+      name: player,
+      newScore: score,
+    });
+    localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
+  }
+  // code below sets up player score object in local storage
+
   // start.setAttribute("style", "display:;");
   // quiz.setAttribute("style", "display:none;");
   // end.setAttribute("style", "display:none;");
-  localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
   // currentQuestionIndex = 0;
   // timeLeft = 40;
   // timer.textContent = timeLeft;
-  window.location.href = "highScore.html";
+  // window.location.href = "highScore.html";
 });

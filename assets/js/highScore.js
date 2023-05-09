@@ -1,3 +1,17 @@
+// var playersScores = [];
+// function renderPlayersScores() {
+//   for (var i = 0; i < playersScores.length; i++) {
+//     var playerScore = playersScores[i];
+//     var addScore = JSON.parse(localStorage.getItem("highScoreData"));
+//     var scoreLi = document.createElement("li");
+//     var scoreUl = document.querySelector(".high-score-list");
+//     scoreLi.textContent = playerScore;
+
+//     scoreUl.appendChild(scoreLi);
+//     // playersScores.push;
+//   }
+// }
+var playerScore = [];
 function renderPlayersScores() {
   var addScore = JSON.parse(localStorage.getItem("highScoreData"));
   var scoreLi = document.createElement("li");
@@ -5,10 +19,6 @@ function renderPlayersScores() {
   scoreLi.innerText =
     "Name: " + addScore.name + "\n Score: " + addScore.newScore;
   scoreUl.appendChild(scoreLi);
-
-  // if (lastGrade !== null) {
-  //   document.querySelector(".message").textContent = lastGrade.student +
-  //   " received a/an " + lastGrade.grade
-  // }
 }
+console.log(playerScore);
 renderPlayersScores();
