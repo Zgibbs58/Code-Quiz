@@ -1,16 +1,9 @@
-// var playersScores = [];
-// function renderPlayersScores() {
-//   for (var i = 0; i < playersScores.length; i++) {
-//     var playerScore = playersScores[i];
-//     var addScore = JSON.parse(localStorage.getItem("highScoreData"));
-//     var scoreLi = document.createElement("li");
-//     var scoreUl = document.querySelector(".high-score-list");
-//     scoreLi.textContent = playerScore;
+var clearScoreBtn = document.querySelector(".high-score-clear");
 
-//     scoreUl.appendChild(scoreLi);
-//     // playersScores.push;
-//   }
-// }
+clearScoreBtn.addEventListener("click", function () {
+  localStorage.removeItem("highScoreData");
+  location.reload();
+});
 
 function renderPlayersScores() {
   // only added the if statement so no error would show if the highScoreData array hasn't been created in local storage yet
