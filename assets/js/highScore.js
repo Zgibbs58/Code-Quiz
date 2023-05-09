@@ -11,14 +11,15 @@
 //     // playersScores.push;
 //   }
 // }
-var playerScore = [];
+
 function renderPlayersScores() {
   var addScore = JSON.parse(localStorage.getItem("highScoreData"));
+  console.log(addScore);
   var scoreLi = document.createElement("li");
   var scoreUl = document.querySelector(".high-score-list");
   scoreLi.innerText =
-    "Name: " + addScore.name + "\n Score: " + addScore.newScore;
+    "Name: " + addScore[0].name + "\n Score: " + addScore[0].newScore;
   scoreUl.appendChild(scoreLi);
 }
-console.log(playerScore);
+
 renderPlayersScores();

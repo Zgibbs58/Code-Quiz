@@ -129,8 +129,9 @@ function endQuiz() {
 quizHome.addEventListener("click", function (event) {
   event.preventDefault();
   player = document.querySelector(".player-input").value;
-  // testing to see if highScoreData exists yet in local storage. If not set up first score in the first if statement
+  // testing to see if highScoreData exists yet in local storage.
   if (!localStorage.getItem("highScoreData")) {
+    // if not create empty array and push user input to it. Then set array to local storage.
     var highScoreData = [];
     highScoreData.push({
       name: player,
@@ -138,6 +139,7 @@ quizHome.addEventListener("click", function (event) {
     });
     localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
   } else {
+    // else get local storage array and push new user input to array and set back to local storage
     highScoreData = JSON.parse(localStorage.getItem("highScoreData"));
     highScoreData.push({
       name: player,
@@ -145,7 +147,6 @@ quizHome.addEventListener("click", function (event) {
     });
     localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
   }
-  // code below sets up player score object in local storage
 
   // start.setAttribute("style", "display:;");
   // quiz.setAttribute("style", "display:none;");
@@ -153,5 +154,5 @@ quizHome.addEventListener("click", function (event) {
   // currentQuestionIndex = 0;
   // timeLeft = 40;
   // timer.textContent = timeLeft;
-  // window.location.href = "highScore.html";
+  window.location.href = "highScore.html";
 });
