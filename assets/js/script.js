@@ -32,13 +32,13 @@ var quizQuestions = [
       "Test rock quality",
     ],
     answer: 0,
-    image: "/assets/images/summit.png",
+    image: "assets/images/summit.png",
   },
   {
     question: "Which of the following is not a type of climbing?",
     choices: ["Lead", "Aid", "Mixed", "Trad"],
     answer: 2,
-    image: "/assets/images/climbing-wall.png",
+    image: "assets/images/climbing-wall.png",
   },
   {
     question: "What is a free solo?",
@@ -49,19 +49,19 @@ var quizQuestions = [
       "Wearing no clothes while climbing",
     ],
     answer: 2,
-    image: "/assets/images/climbing-shoes.png",
+    image: "assets/images/climbing-shoes.png",
   },
   {
     question: "What does kn represent?",
     choices: ["Kilo Newtons", "Killer Noobs", "Kilo Nanos", "Kava Narrow"],
     answer: 0,
-    image: "/assets/images/climber.png",
+    image: "assets/images/climber.png",
   },
   {
     question: "Bouldering requires a harness and a rope.",
     choices: ["True", "False"],
     answer: 1,
-    image: "/assets/images/rope.png",
+    image: "assets/images/rope.png",
   },
   {
     question: "What is a quickdraw?",
@@ -72,7 +72,7 @@ var quizQuestions = [
       "Ascending a rope quickly",
     ],
     answer: 2,
-    image: "/assets/images/gear.png",
+    image: "assets/images/gear.png",
   },
 ];
 
