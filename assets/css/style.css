@@ -42,7 +42,7 @@ header a {
 section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1rem 5rem;
   width: 100vw;
@@ -143,4 +143,27 @@ section {
   /* background-color: lightblue; */
   outline: none;
   border: 2px solid #0c9c5b;
+}
+
+@media screen and (max-width: 750px) {
+  header {
+    font-size: 1rem;
+  }
+  section {
+    padding: 0 1rem;
+  }
+  .quiz-images {
+    height: 30%;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+  .quiz-images img {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .start p {
+    line-height: 1.25rem;
+    margin: 1rem 0;
+  }
 }
