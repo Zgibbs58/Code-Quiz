@@ -5,6 +5,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
+  color: #eff0f1;
 }
 .background {
   position: relative;
@@ -65,42 +66,81 @@ section {
 }
 .start p {
   line-height: 1.75rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
-.start button {
-  padding: 1rem 2rem;
+.take-quiz-btn,
+.submit-high-score {
+  padding: 0.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
   color: #eff0f1;
   background-color: #685a60;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 100%;
 }
-
-li {
-  list-style: none;
-  padding: 0.5rem;
-  text-align: left;
+.take-quiz-btn,
+.submit-high-score:hover {
+  cursor: pointer;
 }
 
-/* input[type="radio"] {
-  -webkit-appearance: none;
-  appearance: none;
-} */
-
-.choices {
-  padding: 0.5rem;
+.quizForm input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
 }
-form {
+
+.quizForm label {
+  display: block;
+  background-color: #685a60;
+  color: #eff0f1;
+  border-color: #685a60;
+  /* background-color: #685a60;
+  border: 2px solid #685a60; */
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
   text-align: center;
 }
-/* form li {
-  padding: 0.5rem;
-  text-align: left;
-} */
+.quizForm label:hover {
+  cursor: pointer;
+}
 
-form li label {
-  /* background-color: blue;
-  color: white; */
-  padding: 0.5rem;
+.quizForm input[type="radio"]:checked + label {
+  background-color: #eff0f1;
+  color: #685a60;
+  border-color: #eff0f1;
+}
+.submit-answer-btn {
+  background-color: #0c9c5b;
+  border: 2px solid #0c9c5b;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+}
+.submit-answer-btn:hover {
+  cursor: pointer;
+}
+
+.end h2 {
+  margin-bottom: 1rem;
+}
+.end p,
+.end input,
+.end button {
+  margin: 1rem 0;
+}
+.end input {
+  text-align: center;
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  color: black;
+  /* font-size: 1.5rem; */
+}
+.end input[type="text"]:focus {
+  /* background-color: lightblue; */
+  outline: none;
+  border: 2px solid #0c9c5b;
 }

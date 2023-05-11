@@ -15,12 +15,12 @@ function renderPlayersScores() {
     });
     console.log(addScore);
     for (let index = 0; index < addScore.length; index++) {
-      var scoreLi = document.createElement("li");
-      var scoreUl = document.querySelector(".high-score-list");
-      scoreLi.innerText =
+      var scoreDiv = document.createElement("div");
+      var scoreSection = document.querySelector(".high-score-list");
+      scoreDiv.innerText =
         // "Name - " +
         addScore[index].name + "\n " + addScore[index].newScore;
-      scoreUl.appendChild(scoreLi);
+      scoreSection.appendChild(scoreDiv);
     }
   }
 }

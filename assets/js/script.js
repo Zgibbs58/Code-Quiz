@@ -49,17 +49,19 @@ var quizQuestions = [
       "Wearing no clothes while climbing",
     ],
     answer: 2,
-    image: "/assets/images/rope.png",
+    image: "/assets/images/climbing-shoes.png",
   },
   {
     question: "What does kn represent?",
     choices: ["Kilo Newtons", "Killer Noobs", "Kilo Nanos", "Kava Narrow"],
     answer: 0,
+    image: "/assets/images/climber.png",
   },
   {
     question: "Bouldering requires a harness and a rope.",
     choices: ["True", "False"],
     answer: 1,
+    image: "/assets/images/rope.png",
   },
   {
     question: "What is a quickdraw?",
@@ -70,6 +72,7 @@ var quizQuestions = [
       "Ascending a rope quickly",
     ],
     answer: 2,
+    image: "/assets/images/gear.png",
   },
 ];
 
@@ -88,7 +91,7 @@ function timerCountdown() {
   timer.textContent = timeLeft;
   timeLeft--;
 
-  if (timeLeft < 0) {
+  if (timeLeft <= 0) {
     clearInterval(myInterval);
     timer.textContent = 0;
     endQuiz();
@@ -107,7 +110,6 @@ function quizQuestDisplay() {
   choicesDiv.textContent = "";
   currentQuestion.choices.forEach((choice, index) => {
     var label = document.createElement("label");
-    var li = document.createElement("li");
     var input = document.createElement("input");
     input.type = "radio";
     input.name = "answer";
@@ -117,9 +119,7 @@ function quizQuestDisplay() {
     label.setAttribute("for", [index]);
     label.textContent = choice;
 
-    li.appendChild(input);
-    li.appendChild(label);
-    choicesDiv.appendChild(li);
+    choicesDiv.append(input, label);
   });
 }
 // upon click of submit button the inputs are checked and the value of the one chosen is checked against correct answer
@@ -137,7 +137,10 @@ function quizLogicHandling(event) {
       userChoice = parseInt(allChoice.value);
       choiceSelected = true;
       choiceMsg.textContent = "Correct Answer";
-      choiceMsg.style.color = "green";
+      choiceMsg.style.color = "#0c9c5b";
+      choiceMsg.style.textAlign = "center";
+      choiceMsg.style.fontSize = "1.3rem";
+      choiceMsg.style.fontWeight = "700";
       break;
     }
   }
@@ -146,11 +149,15 @@ function quizLogicHandling(event) {
   } else {
     if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
       timeLeft -= 5;
-      loseTimeMsg.style.color = "red";
-      loseTimeMsg.textContent = "-5";
-      timer.appendChild(loseTimeMsg);
-      choiceMsg.textContent = "Wrong Answer";
+      // loseTimeMsg.after.innerHTML = null;
+      // loseTimeMsg.style.color = "red";
+      // loseTimeMsg.textContent = "-5";
+      // timer.after(loseTimeMsg);
+      choiceMsg.innerHTML = "Wrong Answer";
       choiceMsg.style.color = "red";
+      choiceMsg.style.textAlign = "center";
+      choiceMsg.style.fontSize = "1.3rem";
+      choiceMsg.style.fontWeight = "700";
     }
     if (currentQuestionIndex < quizQuestions.length - 1) {
       currentQuestionIndex++;

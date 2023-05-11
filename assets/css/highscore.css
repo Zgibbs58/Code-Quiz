@@ -1,4 +1,9 @@
-*,
+:root {
+  --white: #eff0f1;
+  --brown: #685a60;
+  --grey: #9e9d9c;
+  --green: #0c9c5b;
+}
 html {
   margin: 0;
   padding: 0;
@@ -7,7 +12,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 .high-scores-body {
-  background-color: rgb(59, 138, 33);
+  background-color: var(--brown);
 }
 .high-score-nav {
   display: flex;
@@ -18,12 +23,12 @@ html {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 600;
-  color: white;
+  color: var(--white);
 }
 .high-score-header {
   display: flex;
   justify-content: center;
-  color: white;
+  color: var(--white);
   font-size: 1.3rem;
   padding: 1rem 0;
 }
@@ -31,24 +36,24 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(59, 138, 33);
+  background-color: var(--brown);
   margin: 1rem 2rem;
 }
-.high-score-list li {
-  padding: 0.5rem;
+.high-score-list div {
+  padding: 0.5rem 0;
   display: block;
   width: 100%;
-  color: white;
+  color: var(--white);
   font-weight: 600;
   text-align: center;
   font-size: 1.5rem;
-  border-color: white;
+  border-color: var(--white);
   border-style: solid;
   border-width: 7px 14px 7px 14px;
 }
-.high-score-list li:first-child {
-  border-top: 14px solid white;
+.high-score-list div:first-child {
+  border-top: 14px solid var(--white);
 }
-.high-score-list li:last-child {
-  border-bottom: 14px solid white;
+.high-score-list div:last-child {
+  border-bottom: 14px solid var(--white);
 }
