@@ -32,11 +32,13 @@ var quizQuestions = [
       "Test rock quality",
     ],
     answer: 0,
+    image: "/assets/images/summit.png",
   },
   {
     question: "Which of the following is not a type of climbing?",
     choices: ["Lead", "Aid", "Mixed", "Trad"],
     answer: 2,
+    image: "/assets/images/climbing-wall.png",
   },
   {
     question: "What is a free solo?",
@@ -47,6 +49,7 @@ var quizQuestions = [
       "Wearing no clothes while climbing",
     ],
     answer: 2,
+    image: "/assets/images/rope.png",
   },
   {
     question: "What does kn represent?",
@@ -72,7 +75,7 @@ var quizQuestions = [
 
 var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
-var timeLeft = 40;
+var timeLeft = 500;
 var myInterval;
 // made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question in endQuiz function
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
@@ -95,9 +98,11 @@ function timerCountdown() {
 function quizQuestDisplay() {
   var questionDiv = document.querySelector(".question");
   var choicesDiv = document.querySelector(".choices");
+  var quizImage = document.querySelector("#quiz-images");
 
   var currentQuestion = quizQuestions[currentQuestionIndex];
   questionDiv.textContent = currentQuestion.question;
+  quizImage.src = currentQuestion.image;
 
   choicesDiv.textContent = "";
   currentQuestion.choices.forEach((choice, index) => {

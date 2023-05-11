@@ -8,27 +8,43 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <main>
+    <main class="background">
       <header>
         <a class="high-scores" href="highScore.html">View high scores</a>
         <p>Time: <span class="timer">0</span></p>
       </header>
-      <section id="start">
-        <h2>Rock Climbing Quiz</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime unde
-          quasi tenetur, ullam sed dolorum fugiat dolore quidem eum impedit in
-          nam itaque natus sint. Aliquam repellendus repellat numquam nam.
-        </p>
-        <button class="take-quiz-btn">Take Quiz</button>
+
+      <section class="start" id="start">
+        <div class="quiz-images">
+          <img src="/assets/images/climbing.png" alt="" />
+        </div>
+        <div class="quiz-content">
+          <h1>Rock Climbing Quiz</h1>
+          <p>
+            Welcome to the Rock Climbing Quiz!<br />
+            You will have a total of 40 seconds to complete 6 questions.<br />
+            Every question answered incorrectly will subtract 5 seconds from
+            your time.<br />
+            The time remaining when you complete the quiz, will be your score.
+            <br />
+            Feel free to submit your name with your score and make your mark on
+            the High Score Page.<br />
+          </p>
+          <button class="take-quiz-btn">Take Quiz</button>
+        </div>
       </section>
       <section id="quiz" style="display: none">
-        <div class="question"></div>
-        <form id="quizForm" action="">
-          <div class="choices"></div>
-          <button class="submit-answer-btn">Submit</button>
-        </form>
-        <p class="question-message"></p>
+        <div class="quiz-images">
+          <img id="quiz-images" alt="" />
+        </div>
+        <div class="quiz-content">
+          <div class="question"></div>
+          <form id="quizForm" action="">
+            <div class="choices"></div>
+            <button class="submit-answer-btn">Submit</button>
+          </form>
+          <p class="question-message"></p>
+        </div>
       </section>
       <section id="end" style="display: none">
         <h2>You've Completed the Quiz!</h2>
@@ -38,6 +54,28 @@
           <button class="submit-high-score">Submit</button>
         </form>
       </section>
+      <footer style="display: none">
+        <a
+          href="https://www.flaticon.com/free-icons/climbing"
+          title="climbing icons"
+          >Climbing icons created by monkik - Flaticon</a
+        >
+        <a
+          href="https://www.flaticon.com/free-icons/summit"
+          title="summit icons"
+          >Summit icons created by Freepik - Flaticon</a
+        >
+        <a
+          href="https://www.flaticon.com/free-icons/climbing-wall"
+          title="climbing-wall icons"
+          >Climbing-wall icons created by Freepik - Flaticon</a
+        >
+        <a
+          href="https://www.flaticon.com/free-icons/miscellaneous"
+          title="miscellaneous icons"
+          >Miscellaneous icons created by Smashicons - Flaticon</a
+        >
+      </footer>
     </main>
     <script src="assets/js/script.js"></script>
   </body>

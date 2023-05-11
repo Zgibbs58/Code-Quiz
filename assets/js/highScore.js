@@ -18,10 +18,8 @@ function renderPlayersScores() {
       var scoreLi = document.createElement("li");
       var scoreUl = document.querySelector(".high-score-list");
       scoreLi.innerText =
-        "Name - " +
-        addScore[index].name +
-        "\nScore - " +
-        addScore[index].newScore;
+        // "Name - " +
+        addScore[index].name + "\n " + addScore[index].newScore;
       scoreUl.appendChild(scoreLi);
     }
   }
