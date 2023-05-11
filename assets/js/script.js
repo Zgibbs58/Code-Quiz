@@ -78,7 +78,7 @@ var quizQuestions = [
 
 var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
-var timeLeft = 500;
+var timeLeft = 39;
 var myInterval;
 // made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question in endQuiz function
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable

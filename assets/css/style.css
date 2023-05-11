@@ -147,7 +147,7 @@ section {
 
 @media screen and (max-width: 750px) {
   header {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   section {
     padding: 0 1rem;
@@ -160,8 +160,14 @@ section {
   .quiz-images img {
     width: 150px;
   }
+  .start p {
+    line-height: 1.5rem;
+  }
 }
 @media screen and (max-width: 350px) {
+  header {
+    font-size: 1.2rem;
+  }
   .start p {
     line-height: 1.25rem;
     margin: 1rem 0;
