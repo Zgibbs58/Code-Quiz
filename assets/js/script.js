@@ -203,11 +203,5 @@ quizHome.addEventListener("click", function (event) {
     localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
   }
 
-  // start.setAttribute("style", "display:;");
-  // quiz.setAttribute("style", "display:none;");
-  // end.setAttribute("style", "display:none;");
-  // currentQuestionIndex = 0;
-  // timeLeft = 40;
-  // timer.textContent = timeLeft;
   window.location.href = "highScore.html";
 });

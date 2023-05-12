@@ -52,21 +52,30 @@ section {
 
 .quiz-images {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 50%;
+  justify-content: center;
+  height: 40%;
+  margin-bottom: 1rem;
+}
+.quiz-images img {
+  width: 75%;
 }
 .quiz-content {
   color: #eff0f1;
   text-align: left;
+  height: 60%;
 }
 .start h1 {
   text-align: left;
   font-size: 2rem;
 }
-.start p {
-  line-height: 1.75rem;
+.start ol {
   margin: 2rem 0;
+  list-style-position: inside;
+  /* list-style: decimal !important; */
+}
+.start li {
+  margin: 0.5rem 0;
 }
 .take-quiz-btn,
 .submit-high-score {
@@ -147,29 +156,37 @@ section {
 
 @media screen and (max-width: 750px) {
   header {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   section {
-    padding: 0 1rem;
+    padding: 1rem 1rem 0;
+    /* justify-content: flex-start; */
   }
   .quiz-images {
-    height: 30%;
-    align-items: end;
-    margin-bottom: 1rem;
+    height: 40%;
+  }
+  .quiz-content {
+    margin-top: 1rem;
+    height: 60%;
   }
   .quiz-images img {
-    width: 150px;
+    /* width: 175px; */
   }
-  .start p {
-    line-height: 1.5rem;
+  .start ol {
+    margin: 1rem 0;
   }
 }
 @media screen and (max-width: 350px) {
   header {
     font-size: 1.2rem;
+    padding: 1rem 1rem;
   }
-  .start p {
-    line-height: 1.25rem;
-    margin: 1rem 0;
+
+  .quiz-images {
+    align-items: flex-end;
+    margin-bottom: 0;
+  }
+  .quiz-content ol {
+    margin: 0.1rem 0;
   }
 }
