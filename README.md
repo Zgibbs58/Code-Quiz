@@ -6,6 +6,22 @@ This a Rock Climbing Quiz that, once started, has a timer that starts running. A
 
 ## Resources
 
+[Deployed Link](https://zgibbs58.github.io/Code-Quiz/)
+
+[Repo Link](https://github.com/Zgibbs58/Code-Quiz)
+
+## Credits
+
+Images used for quiz from flaticon.com
+[Quiz Image Link](https://www.flaticon.com/free-icons/climbing)
+[Quiz Image Link](https://www.flaticon.com/free-icons/summit)
+[Quiz Image Link](https://www.flaticon.com/free-icons/climbing-wall)
+[Quiz Image Link](https://www.flaticon.com/free-icons/miscellaneous)
+[Quiz Image Link](https://www.flaticon.com/free-icons/climbing-shoes)
+[Quiz Image Link](https://www.flaticon.com/free-icons/climber)
+[Quiz Image Link](https://www.flaticon.com/free-icons/carabiner)
+[Quiz Image Link](https://www.flaticon.com/free-icons/milestones)
+
 ## Screen 
 
 ![Screenshot](./assets/images/Rock-Climbing-Quiz-Screenshot.png)
