@@ -79,7 +79,6 @@ section {
 .start ul {
   margin: 2rem 0;
   list-style-position: inside;
-  /* list-style: decimal !important; */
 }
 .start li {
   margin: 0.5rem 0;
@@ -90,7 +89,7 @@ section {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--white);
-  background-color: var(--brown);
+  background-color: var(--green);
   border-radius: 10px;
   width: 100%;
 }
@@ -138,9 +137,6 @@ section {
   cursor: pointer;
 }
 
-.end h2 {
-  /* margin-bottom: 1rem; */
-}
 .end p,
 .end input,
 .end button {
