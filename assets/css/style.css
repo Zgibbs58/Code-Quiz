@@ -126,6 +126,7 @@ section {
   border-color: var(--white);
 }
 .submit-answer-btn {
+  font-size: 1.5rem;
   background-color: var(--green);
   border: 2px solid var(--green);
   width: 100%;
