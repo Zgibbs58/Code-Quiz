@@ -7,21 +7,10 @@ var quizHome = document.querySelector(".submit-high-score");
 var score;
 var player;
 var highScoreData;
-
-startQuiz.addEventListener("click", function () {
-  start.setAttribute("style", "display:none;");
-  quiz.setAttribute("style", "display:;");
-  end.setAttribute("style", "display:none;");
-  // starting quiz function call
-  quizQuestDisplay();
-  timerStart();
-});
-// submitBtn.addEventListener("click", function () {
-//   start.setAttribute("style", "display:none;");
-//   quiz.setAttribute("style", "display:none;");
-//   end.setAttribute("style", "display:;");
-// });
-
+var currentQuestionIndex = 0;
+var timer = document.querySelector(".timer");
+var timeLeft = 39;
+var myInterval;
 var quizQuestions = [
   {
     question: "What is the main goal of rock climbing?",
@@ -76,10 +65,15 @@ var quizQuestions = [
   },
 ];
 
-var currentQuestionIndex = 0;
-var timer = document.querySelector(".timer");
-var timeLeft = 39;
-var myInterval;
+startQuiz.addEventListener("click", function () {
+  start.setAttribute("style", "display:none;");
+  quiz.setAttribute("style", "display:;");
+  end.setAttribute("style", "display:none;");
+  // starting quiz function call
+  quizQuestDisplay();
+  timerStart();
+});
+
 // made the myInterval variable global so that it can be called in other functions like at the end when we submit the last question in endQuiz function
 // this would work without the var myInterval; code above because myInterval declared in the function below would implicitly declare the variable
 // in the global scope. But this is not good practice
@@ -144,15 +138,12 @@ function quizLogicHandling(event) {
       break;
     }
   }
+  // check to make sure choice is selected if not the user cannot move on. If wrong choice selected wrong answer message and loss of time.
   if (!choiceSelected) {
     return;
   } else {
     if (userChoice !== quizQuestions[currentQuestionIndex].answer) {
       timeLeft -= 5;
-      // loseTimeMsg.after.innerHTML = null;
-      // loseTimeMsg.style.color = "red";
-      // loseTimeMsg.textContent = "-5";
-      // timer.after(loseTimeMsg);
       choiceMsg.innerHTML = "Wrong Answer";
       choiceMsg.style.color = "red";
       choiceMsg.style.textAlign = "center";

@@ -69,7 +69,7 @@ section {
   text-align: left;
   font-size: 2rem;
 }
-.start ol {
+.start ul {
   margin: 2rem 0;
   list-style-position: inside;
   /* list-style: decimal !important; */
@@ -106,14 +106,16 @@ section {
   /* background-color: #685a60;
   border: 2px solid #685a60; */
   border-radius: 10px;
-  padding: 0.5rem 2rem;
-  margin: 1rem 0;
+  padding: 0.75rem 2rem;
+  margin: 0.5rem 0;
   text-align: center;
 }
 .quizForm label:hover {
   cursor: pointer;
 }
-
+.question {
+  font-size: 1.2rem;
+}
 .quizForm input[type="radio"]:checked + label {
   background-color: #eff0f1;
   color: #685a60;
@@ -125,19 +127,22 @@ section {
   width: 100%;
   border-radius: 10px;
   padding: 0.75rem 0;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 .submit-answer-btn:hover {
   cursor: pointer;
 }
 
 .end h2 {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 .end p,
 .end input,
 .end button {
   margin: 1rem 0;
+}
+.end {
+  justify-content: flex-start;
 }
 .end input {
   text-align: center;
@@ -146,10 +151,8 @@ section {
   box-sizing: border-box;
   padding: 1rem;
   color: black;
-  /* font-size: 1.5rem; */
 }
 .end input[type="text"]:focus {
-  /* background-color: lightblue; */
   outline: none;
   border: 2px solid #0c9c5b;
 }
@@ -172,7 +175,7 @@ section {
   .quiz-images img {
     /* width: 175px; */
   }
-  .start ol {
+  .start ul {
     margin: 1rem 0;
   }
 }
@@ -186,7 +189,7 @@ section {
     align-items: flex-end;
     margin-bottom: 0;
   }
-  .quiz-content ol {
+  .quiz-content ul {
     margin: 0.1rem 0;
   }
 }
