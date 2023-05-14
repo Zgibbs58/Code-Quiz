@@ -9,7 +9,7 @@ var player;
 var highScoreData;
 var currentQuestionIndex = 0;
 var timer = document.querySelector(".timer");
-var timeLeft = 39;
+var timeLeft = 49;
 var myInterval;
 var quizQuestions = [
   {
@@ -125,7 +125,7 @@ function quizLogicHandling(event) {
   var userChoice = null;
   var choiceSelected = false;
   var choiceMsg = document.querySelector(".question-message");
-  var loseTimeMsg = document.createElement("p");
+  // for of evaluates allChoices to see if any are checked, if they are userChoice is set to choice index and Correct Answer is displayed.
   for (var allChoice of allChoices) {
     if (allChoice.checked) {
       userChoice = parseInt(allChoice.value);
@@ -161,11 +161,12 @@ function quizLogicHandling(event) {
 }
 
 function endQuiz() {
-  // defining the score, displaying it, and setting it to local storage.
+  // updating the timer to the timeLeft after all functions have run and defining score to current timer variable
+  timer.textContent = timeLeft;
   score = timer.textContent;
-  // localStorage.setItem("score", score);
   var scoreText = document.querySelector(".score-text");
   scoreText.textContent = "You're score was " + score;
+  // stopping the timer from continuing to run
   clearInterval(myInterval);
   start.setAttribute("style", "display:none;");
   quiz.setAttribute("style", "display:none;");

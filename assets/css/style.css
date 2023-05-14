@@ -1,3 +1,9 @@
+:root {
+  --white: #eff0f1;
+  --brown: #685a60;
+  --grey: #9e9d9c;
+  --green: #0c9c5b;
+}
 *,
 html {
   margin: 0;
@@ -5,11 +11,12 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
-  color: #eff0f1;
+  color: var(--white);
 }
+
 .background {
   position: relative;
-  background-color: #9e9d9c;
+  background-color: var(--grey);
   width: 100vw;
   height: 100vh;
   z-index: 10;
@@ -29,14 +36,14 @@ header {
   align-items: center;
   padding: 1rem 2rem;
   font-size: 2rem;
-  color: #eff0f1;
+  color: var(--white);
 }
 header p {
   text-align: right;
 }
 header a {
   text-decoration: none;
-  color: #eff0f1;
+  color: var(--white);
 }
 
 section {
@@ -61,7 +68,7 @@ section {
   width: 75%;
 }
 .quiz-content {
-  color: #eff0f1;
+  color: var(--white);
   text-align: left;
   height: 60%;
 }
@@ -82,8 +89,8 @@ section {
   padding: 0.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #eff0f1;
-  background-color: #685a60;
+  color: var(--white);
+  background-color: var(--brown);
   border-radius: 10px;
   width: 100%;
 }
@@ -100,11 +107,9 @@ section {
 
 .quizForm label {
   display: block;
-  background-color: #685a60;
-  color: #eff0f1;
-  border-color: #685a60;
-  /* background-color: #685a60;
-  border: 2px solid #685a60; */
+  background-color: var(--brown);
+  color: var(--white);
+  border-color: var(--brown);
   border-radius: 10px;
   padding: 0.75rem 2rem;
   margin: 0.5rem 0;
@@ -117,13 +122,13 @@ section {
   font-size: 1.2rem;
 }
 .quizForm input[type="radio"]:checked + label {
-  background-color: #eff0f1;
-  color: #685a60;
-  border-color: #eff0f1;
+  background-color: var(--white);
+  color: var(--brown);
+  border-color: var(--white);
 }
 .submit-answer-btn {
-  background-color: #0c9c5b;
-  border: 2px solid #0c9c5b;
+  background-color: var(--green);
+  border: 2px solid var(--green);
   width: 100%;
   border-radius: 10px;
   padding: 0.75rem 0;
@@ -154,7 +159,7 @@ section {
 }
 .end input[type="text"]:focus {
   outline: none;
-  border: 2px solid #0c9c5b;
+  border: 2px solid var(--green);
 }
 
 @media screen and (max-width: 750px) {
