@@ -6,9 +6,9 @@ This a Rock Climbing Quiz that, once started, has a timer that starts running. A
 
 ## Resources
 
-[Deployed Link](https://zgibbs58.github.io/Code-Quiz/)
+[Deployed Link](https://zgibbs58.github.io/Rock-Climbing-Quiz/)
 
-[Repo Link](https://github.com/Zgibbs58/Code-Quiz)
+[Repo Link](https://github.com/Zgibbs58/Rock-Climbing-Quiz)
 
 ## Credits
 
